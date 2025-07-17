@@ -1,0 +1,43 @@
+# Documentation
+README.md
+CHANGELOG.md
+*.md
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Build artifacts
+*.log
+*.tmp
+*.temp
+
+# Docker
+.dockerignore
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Backup files
+*.bak
+*.backup
+
+# Editor files
+*~
+*.orig
+*.rej
