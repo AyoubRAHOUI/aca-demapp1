@@ -43,7 +43,7 @@ RUN dotnet build "dotnet-api.csproj" -c Release -o /app/build --no-restore
 
 FROM build AS publish
 RUN dotnet publish "dotnet-api.csproj" -c Release -o /app/publish \
-    --no-restore --no-build \
+    --no-restore \
     /p:UseAppHost=false \
     /p:PublishTrimmed=true \
     /p:PublishSingleFile=false
