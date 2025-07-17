@@ -1,0 +1,41 @@
+version: "3.4"
+
+networks:
+  web-app-aca:
+    driver: bridge
+    name: web-app-aca
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
+          gateway: 10.5.0.1
+
+services:
+  nginx-reverse-proxy:
+    image: ${DOCKER_REGISTRY-}nginx-reverse-proxy
+    container_name: nginx-reverse-proxy
+    build:
+      context: ./nginx-reverse-proxy/
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    networks:
+      - web-app-aca
+    environment:
+      - API_URL=${API_URL}
+      - FRONTEND_URL=${FRONTEND_URL}
+  dotnet-api:
+    image: ${DOCKER_REGISTRY-}dotnet-api
+    container_name: dotnet-api
+    build:
+      context: ./dotnet-api/
+      dockerfile: Dockerfile
+    networks:
+      - web-app-aca
+  angular-frontend:
+    image: ${DOCKER_REGISTRY-}angular-frontend
+    container_name: angular-frontend
+    build:
+      context: ./angular-frontend/
+      dockerfile: Dockerfile
+    networks:
+      - web-app-aca

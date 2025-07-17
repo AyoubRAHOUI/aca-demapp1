@@ -1,0 +1,23 @@
+<p-card header="Jedis" [style]="{ margin: '50px' }">
+  <p-table
+    [value]="jedis | async | notnull"
+    [tableStyle]="{ 'min-width': '50rem' }"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Height</th>
+        <th>Mass</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-jedi>
+      <tr>
+        <td>{{ jedi.name }}</td>
+        <td>{{ jedi.gender }}</td>
+        <td>{{ jedi.height }}</td>
+        <td>{{ jedi.mass }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>

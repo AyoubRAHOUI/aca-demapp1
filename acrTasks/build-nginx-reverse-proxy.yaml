@@ -1,0 +1,6 @@
+version: v1.1.0
+steps:
+  - build: --tag $Registry/demoapp1-nginx-reverse-proxy:$ID --tag $Registry/demoapp1-nginx-reverse-proxy:latest .
+  - push: 
+    - $Registry/demoapp1-nginx-reverse-proxy:$ID
+    - $Registry/demoapp1-nginx-reverse-proxy:latest
